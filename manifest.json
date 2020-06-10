@@ -1,0 +1,29 @@
+{
+	"name": "Email Extractor",
+	"version" : "1.0",
+	
+	"author" : "Shubham Nandi",
+	"description" : "Chrome Extension Email Extractor to fetch emails from any site to a downloadable txt file and removes the duplicates.",
+	"permissions" : ["activeTab","declarativeContent", "storage"],
+	"background": {
+		"scripts" : ["background.js"],
+		"persistent": false
+	},
+	"page_action": {
+		"default_popup": "extension_popup.html",
+		"deafult_icon" : {
+			"16" : "img.png",
+			"32" : "img.png",
+			"48" : "img.png",
+			"128" : "img.png"
+		},
+		"default_title" : "Email Extractor"
+	},
+	"icons" : {
+		"16" : "img.png",
+		"32" : "img.png",
+		"48" : "img.png",
+		"128" : "img.png"
+	},
+	"manifest_version": 2
+}
