@@ -7,6 +7,6 @@ email_ext.onclick = function(element) {
 	chrome.tabs.query ({ active : true, currentWindow : true} , function(tabs){
 		chrome.tabs.executeScript(
 			tabs[0].id , 
-			{code : 'var mails = document.body.innerHTML.toString().match('+regx+'); var uniq = [...new Set(mails)]; var bl = new Blob([uniq.join("\\r\\n")],{type: "text/plain" }); var filename = "emails.txt"; var link = document.createElement("a"); link.download = filename; if(window.webkitURL != null){ link.href = window.webkitURL.createObjectURL(bl);}else{ link.href = window.URL.createObjectURL(bl); link.style.display = "none"; document.body.appendChild(link);} link.click();'});
+			{code : 'var mails = document.body.innerHTML.toString().match('+regx+'); if(mails == null){ alert("NO EMAILS FOUND!");} else{ var uniq = [...new Set(mails)]; var bl = new Blob([uniq.join("\\r\\n")],{type: "text/plain" }); var filename = "emails.txt"; var link = document.createElement("a"); link.download = filename; if(window.webkitURL != null){ link.href = window.webkitURL.createObjectURL(bl);}else{ link.href = window.URL.createObjectURL(bl); link.style.display = "none"; document.body.appendChild(link);} link.click(); }'});
 		});
 };
